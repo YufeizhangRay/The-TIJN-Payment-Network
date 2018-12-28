@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 8, 2018 7:27:26 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cs631.venmo.pojo.Bank" table="venmo_bank">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="bankName" type="java.lang.String">
+            <column name="bank_name" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 14, 2018 5:24:03 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cs631.venmo.pojo.RequestRecord" table="venmo_request_record">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" />
+        </property>
+        <property name="info" type="java.lang.String">
+            <column name="info" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" />
+        </property>
+        <property name="memo" type="java.lang.String">
+            <column name="memo" />
+        </property>
+        <property name="time" type="java.sql.Timestamp">
+            <column name="time" />
+        </property>
+        <property name="state" type="java.lang.Integer">
+            <column name="state" />
+        </property>
+        <property name="isExit" type="java.lang.Integer">
+            <column name="is_exit" />
+        </property>
+    </class>
+</hibernate-mapping>

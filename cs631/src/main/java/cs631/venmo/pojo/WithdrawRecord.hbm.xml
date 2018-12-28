@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 10, 2018 9:38:38 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cs631.venmo.pojo.WithdrawRecord" table="vemo_withdraw_record">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="native" />
+        </id>
+        <property name="username" type="java.lang.String">
+            <column name="username" />
+        </property>
+        <property name="amount" type="java.lang.Double">
+            <column name="amount" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="account" />
+        </property>
+        <property name="bankName" type="java.lang.String">
+            <column name="bank_name" />
+        </property>
+        <property name="withdrawTime" type="java.sql.Timestamp">
+            <column name="withdraw_time" />
+        </property>
+    </class>
+</hibernate-mapping>
