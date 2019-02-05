@@ -60,6 +60,8 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("isadmin");
 		session.removeAttribute("loginUser");
+		session.removeAttribute("primaryAccount");
+		session.removeAttribute("oldPassword");
 		session.invalidate();
 		return "redirect:/login";
 	}
