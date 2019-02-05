@@ -23,6 +23,8 @@ public class ProcessTimeListener implements ServletContextListener {
 	private SendRecordService sendRecordService;
 
 	private static List<SendRecord> sendRecords;
+	
+	private Timer timer; 
 
 	// 程序运行即启动监听
 	@Override
@@ -31,14 +33,14 @@ public class ProcessTimeListener implements ServletContextListener {
 				.getWebApplicationContext(sce.getServletContext());
 		this.sendRecordService = (SendRecordService) applicationContext.getBean("sendRecordService");
 		sendRecords = sendRecordService.getAllUnProcessSendRecords();
-		Timer timer = new Timer();
+		timer = new Timer();
 		MyTimerTask myTimerTask = new MyTimerTask();
 		timer.schedule(myTimerTask, LOAD_LIST_TIME, LOAD_LIST_TIME);// 1分钟间隔执行任务
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-
+		timer.cancel();
 	}
 
 	class MyTimerTask extends TimerTask {
