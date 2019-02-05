@@ -118,29 +118,12 @@ public class RequestRecordServiceImpl extends BaseServiceImpl<RequestRecord> imp
 	@Override
 	public void requestMoneySplit(User loginUser, String info1, String info2, Double percent, String memo1,
 			String memo2, Double value) {
-
 		Double per = percent / 100;
 		Double amount1 = Double.valueOf(df.format(per * value));
-
-		RequestRecord requestRecord1 = new RequestRecord();
-		User user1 = userDao.loadUserByEmailOrPhone(info1);
-		if (user1 == null) {
-			requestRecord1.setIsExit(0);
-		} else {
-			requestRecord1.setIsExit(1);
-		}
-
-		RequestRecord requestRecord2 = new RequestRecord();
+		requsetMoney(loginUser, info1, memo1, amount1);
 		Double amount2 = Double.valueOf(df.format(value - amount1));
-		User user2 = userDao.loadUserByEmailOrPhone(info2);
-		if (user2 == null) {
-			requestRecord2.setIsExit(0);
-		} else {
-			requestRecord2.setIsExit(1);
-		}
-
-		requestRecordDao.insertRecord(loginUser, requestRecord1, info1, memo1, amount1);
-		requestRecordDao.insertRecord(loginUser, requestRecord2, info2, memo2, amount2);
+		requsetMoney(loginUser, info2, memo2, amount2);
+		
 	}
 
 	@Override
